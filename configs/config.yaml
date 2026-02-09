@@ -1,0 +1,96 @@
+# Configuration for RL Recommendation System
+
+# Data Configuration
+data:
+  dataset: "movielens-1m"
+  data_dir: "data/raw"
+  processed_dir: "data/processed"
+  min_user_interactions: 20
+  min_item_interactions: 10
+  test_ratio: 0.2
+  val_ratio: 0.1
+
+# Model Configuration
+model:
+  # Embedding dimensions
+  user_embedding_dim: 64
+  item_embedding_dim: 64
+  
+  # DQN Architecture
+  hidden_layers: [256, 128, 64]
+  dropout: 0.2
+  
+  # State representation
+  history_length: 10  # Number of recent interactions to include in state
+
+# Training Configuration
+training:
+  # General
+  seed: 42
+  device: "auto"  # auto, cuda, cpu
+  
+  # Baseline (Matrix Factorization)
+  mf_epochs: 50
+  mf_learning_rate: 0.01
+  mf_regularization: 0.01
+  
+  # RL Training
+  episodes: 10000
+  max_steps_per_episode: 20
+  batch_size: 64
+  learning_rate: 0.001
+  gamma: 0.99  # Discount factor
+  
+  # Epsilon-greedy
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995
+  
+  # Experience Replay
+  replay_buffer_size: 100000
+  min_replay_size: 1000
+  
+  # Target Network
+  target_update_freq: 100
+  
+  # Checkpointing
+  save_freq: 500
+  log_freq: 100
+
+# Environment Configuration
+environment:
+  session_length: 20  # Max recommendations per session
+  num_candidates: 100  # Candidate items per step
+  
+  # Reward Configuration
+  reward:
+    purchase: 5.0
+    click_dwell: 2.0
+    click: 1.0
+    skip: -1.0
+    session_complete_bonus: 10.0
+
+# User Simulator Configuration
+simulator:
+  # Similarity thresholds for feedback
+  purchase_threshold: 0.7
+  click_threshold: 0.4
+  
+  # Noise for realistic simulation
+  noise_std: 0.1
+  
+  # User fatigue modeling
+  enable_fatigue: true
+  fatigue_decay: 0.95
+
+# Evaluation Configuration
+evaluation:
+  k_values: [5, 10, 20]  # For Precision@K, Recall@K, NDCG@K
+  num_eval_episodes: 100
+  
+# Logging Configuration
+logging:
+  log_dir: "results/logs"
+  model_dir: "results/models"
+  plot_dir: "results/plots"
+  tensorboard: true

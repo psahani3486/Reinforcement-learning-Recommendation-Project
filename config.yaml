@@ -1,0 +1,39 @@
+# Configuration for RL Recommendation System
+
+data:
+  dataset: movielens-1m
+  raw_path: data/raw
+  processed_path: data/processed
+  min_user_interactions: 20
+  min_item_interactions: 10
+
+model:
+  user_embedding_dim: 64
+  item_embedding_dim: 64
+  history_length: 10
+  hidden_layers: [256, 128]
+
+environment:
+  session_length: 20
+  num_candidates: 100
+
+training:
+  episodes: 100  # Quick training - increase for better results
+  batch_size: 64
+  learning_rate: 0.001
+  gamma: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995
+  replay_buffer_size: 100000
+  target_update_freq: 100
+  min_replay_size: 1000
+
+evaluation:
+  num_episodes: 50
+  k_values: [5, 10, 20]
+
+logging:
+  tensorboard: true
+  log_frequency: 10
+  save_frequency: 50
