@@ -24,8 +24,10 @@ Follow these EXACT steps. Do NOT skip any. Copy-paste values when shown.
 2. Click **Add New Database User**
 3. Fill in:
    - **Username:** `admin`
-   - **Password:** `MyMongo123!@#` (remember this!)
+   - **Password:** `MyMongo123` (⚠️ NO special characters - keep it simple!)
 4. Click **Create User**
+
+**⚠️ IMPORTANT:** Use ONLY letters, numbers, and hyphens. NO `!@#$%^&*` etc.
 
 ### Step 4: Whitelist IP
 1. Left menu → **Network Access**
@@ -37,14 +39,14 @@ Follow these EXACT steps. Do NOT skip any. Copy-paste values when shown.
 1. Go to **Databases** (left menu)
 2. Click **Connect** on your cluster
 3. Select **Drivers** → **Node.js**
-4. Copy the connection string
-5. **Replace** `<password>` with `MyMongo123!@#`
+4. Copy the connection string (looks like below)
+5. **Replace** `<password>` with `MyMongo123`
 6. **Replace** `<username>` with `admin`
-7. Add database name: `/rl-recommendation?retryWrites=true&w=majority`
+7. Make sure it ends with: `/rl-recommendation?retryWrites=true&w=majority`
 
 **Final URL should look like:**
 ```
-mongodb+srv://admin:MyMongo123!@#@cluster0.mongodb.net/rl-recommendation?retryWrites=true&w=majority
+mongodb+srv://admin:MyMongo123@cluster0.mongodb.net/rl-recommendation?retryWrites=true&w=majority
 ```
 
 **Save this! ⭐ You need it for Railway.**
@@ -75,12 +77,15 @@ Railway starts building automatically! ⏳ Wait for it...
 
 | Key | Value |
 |-----|-------|
-| `MONGODB_URI` | `mongodb+srv://admin:MyMongo123!@#@cluster0.mongodb.net/rl-recommendation?retryWrites=true&w=majority` |
+| `MONGODB_URI` | `mongodb+srv://admin:MyMongo123@cluster0.mongodb.net/rl-recommendation?retryWrites=true&w=majority` |
 | `JWT_SECRET` | `your-super-secret-jwt-key-12345678901234567890` |
 | `NODE_ENV` | `production` |
 | `CORS_ORIGIN` | `https://rl-recommendation.vercel.app` |
 
-**Press Enter after each one.** Railway auto-saves.
+**⚠️ IMPORTANT:** 
+- Replace `MyMongo123` with YOUR actual MongoDB password
+- Replace `cluster0` with YOUR cluster name
+- Press Enter after each one - Railway auto-saves
 
 ### Step 4: Wait for Green Checkmark ✅
 - Deployment should complete in ~2-3 minutes
