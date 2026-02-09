@@ -1,0 +1,36 @@
+# Raw data files - not needed in production
+data/raw/
+data/processed/
+
+# Python development files
+src/
+notebooks/
+
+# Test & development files
+results/
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Large dependency caches
+.pytest_cache/
+.tox/
+
+# Environment files
+.env
+.venv/
+venv/
