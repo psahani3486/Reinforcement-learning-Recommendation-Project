@@ -12,6 +12,7 @@ A complete end-to-end movie recommendation system powered by Deep Q-Learning (DQ
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Deployment](#deployment)
 - [API Documentation](#api-documentation)
 - [Training Models](#training-models)
 - [Evaluation](#evaluation)
@@ -324,7 +325,42 @@ Frontend runs at: `http://localhost:5173`
 6. **Social Features**: Connect with friends, share recommendations
 7. **Analytics**: View interaction history and statistics
 
-## 📡 API Documentation
+## � Deployment
+
+Deploy the application easily using Vercel (frontend) and Render/Railway (backend):
+
+### Quick Start
+1. **Backend**: Deploy to Render or Railway (Node.js + MongoDB)
+2. **Frontend**: Deploy to Vercel (React/Vite)
+3. **Database**: Use MongoDB Atlas (free tier available)
+
+### Full Instructions
+
+See the detailed deployment guides:
+- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Step-by-step setup for Vercel + Render/Railway
+- **[DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)** - Quick reference checklist
+
+### Environment Variables
+
+**Backend (Render/Railway)**:
+```env
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/rl-recommendation
+JWT_SECRET=your-strong-secret-key
+NODE_ENV=production
+CORS_ORIGIN=https://your-frontend.vercel.app
+```
+
+**Frontend (Vercel)**:
+```env
+VITE_API_URL=https://your-backend.onrender.com
+```
+
+### Deployment Platforms
+- **Frontend**: [Vercel](https://vercel.com) (free tier)
+- **Backend**: [Render](https://render.com) or [Railway](https://railway.app) (free tier)
+- **Database**: [MongoDB Atlas](https://mongodb.com/cloud/atlas) (free tier)
+
+## �📡 API Documentation
 
 ### Authentication
 
